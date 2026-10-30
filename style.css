@@ -1,0 +1,250 @@
+/* Colors saved as variables so we can change them in one place */
+:root {
+  --pink: #e8799b;
+  --pink-light: #fdeef3;
+  --dark: #3a2e33;
+}
+
+/* Applies to the whole page */
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  color: var(--dark);
+  background: white;
+}
+
+/* The big top banner */
+.hero {
+  background: var(--pink-light);
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: var(--pink);
+  margin: 0 0 10px;
+}
+
+/* The button */
+.btn {
+  display: inline-block;
+  background: var(--pink);
+  color: white;
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  margin-top: 20px;
+}
+
+.btn:hover {
+  background: #d05f82;
+}
+
+/* Keeps content centered and not too wide */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* Service cards side by side */
+.cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  flex: 1 1 220px;
+  border: 1px solid var(--pink-light);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.price {
+  font-size: 1.6rem;
+  color: var(--pink);
+  margin: 8px 0;
+}
+
+footer {
+  background: var(--dark);
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Booking form */
+form {
+  max-width: 480px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+label {
+  display: block;
+  margin: 18px 0 6px;
+  font-weight: bold;
+}
+
+input, select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.slots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.slot {
+  padding: 10px 14px;
+  border: 1px solid var(--pink);
+  background: white;
+  color: var(--pink);
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.slot:hover { background: var(--pink-light); }
+
+.slot.selected {
+  background: var(--pink);
+  color: white;
+}
+
+.slot:disabled {
+  border-color: #ccc;
+  color: #bbb;
+  background: #f5f5f5;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+form .btn {
+  width: 100%;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 24px;
+}
+
+#message { margin-top: 20px; font-weight: bold; }
+.hint { color: #999; margin: 0; }
+
+/* ---------- Side navigation (hidden until the 3 lines are clicked) ---------- */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 100vh;
+  background: var(--dark);
+  display: flex;
+  flex-direction: column;
+  padding: 80px 20px 30px;      /* top space so it clears the 3-line button */
+  box-sizing: border-box;
+  z-index: 20;
+  transform: translateX(-100%); /* hidden off-screen by default */
+  transition: transform 0.3s ease;
+}
+
+.sidebar.open {
+  transform: translateX(0);     /* slides in */
+}
+
+.sidebar .logo {
+  color: var(--pink);
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  margin-bottom: 30px;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.sidebar nav a {
+  color: white;
+  text-decoration: none;
+  padding: 12px 14px;
+  border-radius: 10px;
+}
+
+.sidebar nav a:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.sidebar .btn {
+  text-align: center;
+}
+
+/* Dark layer behind the menu */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  pointer-events: none;         /* can't be clicked while hidden */
+  transition: opacity 0.3s;
+  z-index: 15;
+}
+
+.overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* The 3-line button */
+.menu-toggle {
+  position: fixed;
+  top: 14px;
+  left: 14px;
+  z-index: 30;                  /* stays above the sidebar so it can close it */
+  width: 46px;
+  height: 46px;
+  background: var(--pink);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.menu-toggle span {
+  display: block;
+  width: 22px;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* Turn the 3 lines into an X when open */
+.menu-toggle.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}

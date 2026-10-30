@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nails By Jhoi | Pasig City</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <button class="menu-toggle" id="menu-toggle" aria-label="Open menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <div class="overlay" id="overlay"></div>
+  <aside class="sidebar" id="sidebar">
+    <a href="#top" class="logo">Your Salon Name</a>
+
+    <nav>
+      <a href="#top">🏠 Home</a>
+      <a href="#services">💅 Services</a>
+      <a href="#gallery">🖼️ Gallery</a>
+      <a href="#booking">📅 Book</a>
+      <a href="#contact">📍 Contact</a>
+    </nav>
+
+    <a href="#booking" class="btn small">Book Now</a>
+  </aside>
+
+  <main class="main">
+
+  <header class="hero">
+    <h1>Bloom Nails</h1>
+    <p>Beautiful nails, made just for you.</p>
+    <a href="#booking" class="btn">Book Now</a>
+  </header>
+
+  <section class="container">
+    <h2>Our Services</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Classic Manicure</h3>
+        <p class="price">₱250</p>
+        <p>30 minutes</p>
+      </div>
+      <div class="card">
+        <h3>Gel Polish</h3>
+        <p class="price">₱450</p>
+        <p>45 minutes</p>
+      </div>
+      <div class="card">
+        <h3>Nail Art</h3>
+        <p class="price">₱700</p>
+        <p>60 minutes</p>
+      </div>
+    </div>
+  </section>
+
+   <section class="container" id="booking">
+    <h2>Book an Appointment</h2>
+
+    <form id="booking-form">
+      <label for="service">Service</label>
+      <select id="service" required>
+        <option value="">Choose a service...</option>
+        <option>Classic Manicure - ₱250</option>
+        <option>Gel Polish - ₱450</option>
+        <option>Nail Art - ₱700</option>
+      </select>
+
+      <label for="date">Date</label>
+      <input type="date" id="date" required>
+
+      <label>Time</label>
+      <div id="slots" class="slots">
+        <p class="hint">Pick a date first</p>
+      </div>
+
+      <label for="name">Your name</label>
+      <input type="text" id="name" required>
+
+      <label for="phone">Mobile number</label>
+      <input type="tel" id="phone" placeholder="09XX XXX XXXX" required>
+
+      <button type="submit" class="btn">Confirm Booking</button>
+    </form>
+
+    <p id="message"></p>
+  </section>
+
+  <footer>
+    <p>Open daily 10am to 8pm · Pasig City</p>
+  </footer>
+
+      </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.0"></script>
+  <script src="script.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.0"></script>
+  <script src="script.js"></script>
+</body>
+</html>
